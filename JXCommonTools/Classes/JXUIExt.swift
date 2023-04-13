@@ -34,7 +34,6 @@ extension UIView {
     }
     
     @objc private func jx_keyBoard_willShow(_ notification: Notification) {
-        
         let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval)
 
@@ -78,8 +77,7 @@ extension UIView {
         } else if pan.state == .ended {
             let minX1 = bounds.size.width/2.0
             let maxX1 = superview.bounds.size.width - bounds.size.width/2.0
-
-            view.safeAreaInsets.
+            
             let minY1 = bounds.size.height/2.0 + superview.safeAreaInsets.top
             let maxY1 = superview.bounds.size.height - bounds.size.height/2.0 - superview.safeAreaInsets.bottom
             

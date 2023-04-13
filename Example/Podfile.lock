@@ -1,16 +1,24 @@
 PODS:
-  - JXCommonTools (0.1.0)
+  - JXCommonTools (0.1.0):
+    - SnapKit
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - JXCommonTools (from `../`)
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   JXCommonTools:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JXCommonTools: 2fddec881f2184a1b028f18aa6c0306d4980aa5f
+  JXCommonTools: 1f9a3c0e430b39dc8d7a3f0a82606e8f8f6d2439
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: a6469f40cda0a243de24328c1a453af12b2fecd2
+PODFILE CHECKSUM: 5de0d2c948a1d859fda41855cefe6f01fc020aec
 
 COCOAPODS: 1.12.0
