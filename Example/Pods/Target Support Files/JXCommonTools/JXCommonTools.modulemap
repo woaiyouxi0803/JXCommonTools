@@ -1,0 +1,6 @@
+framework module JXCommonTools {
+  umbrella header "JXCommonTools-umbrella.h"
+
+  export *
+  module * { export * }
+}

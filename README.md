@@ -22,7 +22,7 @@ pod 'JXCommonTools'
 
 ## Author
 
-m1, m1@ly.com
+woaiyouxi0803, woaiyouxi0803@163.com
 
 ## License
 
