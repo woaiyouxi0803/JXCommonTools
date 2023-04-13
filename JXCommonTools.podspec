@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'woaiyouxi' => 'woaiyouxi0803@163.com' }
-  s.source           = { :git => 'https://github.com/woaiyouxi0803/JXCommonTools', :tag => 0.1.0 }
+  s.source           = { :git => 'https://github.com/woaiyouxi0803/JXCommonTools', :tag => s.version.to_s }
    s.social_media_url = 'https://www.jianshu.com/u/2db8fe439069'
 
   s.ios.deployment_target = '12.0'
