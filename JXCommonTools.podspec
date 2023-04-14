@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JXCommonTools'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'swift工具,iOS13,swift5.0'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'woaiyouxi' => 'woaiyouxi0803@163.com' }
-  s.source           = { :git => 'https://github.com/woaiyouxi0803/JXCommonTools.git', :tag => 'v0.1.1' }
+  s.source           = { :git => 'https://github.com/woaiyouxi0803/JXCommonTools.git', :tag => s.version }
    s.social_media_url = 'https://www.jianshu.com/u/2db8fe439069'
 
    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
