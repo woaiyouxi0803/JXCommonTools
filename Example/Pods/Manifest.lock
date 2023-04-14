@@ -1,5 +1,5 @@
 PODS:
-  - JXCommonTools (0.1.0):
+  - JXCommonTools (0.1.1):
     - SnapKit
   - SnapKit (5.6.0)
 
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JXCommonTools: abc2b8e1be3bd339730c509ab610bc9a3dca8105
+  JXCommonTools: f9fc298d336a3507c2e28edbd77fd08589a4364c
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
 PODFILE CHECKSUM: 5d296d3f205187a4be18ad73113d9d58879d7004

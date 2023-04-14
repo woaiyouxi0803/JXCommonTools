@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7EA9B6ECE2CB2A03C5FC0A0E /* Pods_JXCommonTools_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F036492086FAC4009B42BE1 /* Pods_JXCommonTools_Example.framework */; };
+		8265DA5229E93E4800AB9A71 /* JXCenterFlowLayoutDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8265DA5129E93E4800AB9A71 /* JXCenterFlowLayoutDemo.swift */; };
 		AAEE48477906A5C79A51F47A /* Pods_JXCommonTools_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA633D75A24B3D25EB09C /* Pods_JXCommonTools_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7A0FE50CD12C7144630E00B6 /* Pods-JXCommonTools_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JXCommonTools_Tests.release.xcconfig"; path = "Target Support Files/Pods-JXCommonTools_Tests/Pods-JXCommonTools_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8265DA5129E93E4800AB9A71 /* JXCenterFlowLayoutDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXCenterFlowLayoutDemo.swift; sourceTree = "<group>"; };
 		E8A41DA168F97D2A293C8BB9 /* JXCommonTools.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JXCommonTools.podspec; path = ../JXCommonTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F4B4B5875895BC9F44610941 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F76170D97262F3C19C9A7256 /* Pods-JXCommonTools_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JXCommonTools_Example.debug.xcconfig"; path = "Target Support Files/Pods-JXCommonTools_Example/Pods-JXCommonTools_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		607FACD21AFB9204008FA782 /* Example for JXCommonTools */ = {
 			isa = PBXGroup;
 			children = (
+				8265DA5029E93E3C00AB9A71 /* Demo */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -148,6 +151,14 @@
 				F4B4B5875895BC9F44610941 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8265DA5029E93E3C00AB9A71 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				8265DA5129E93E4800AB9A71 /* JXCenterFlowLayoutDemo.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		96CCD4CF65CF392336644950 /* Frameworks */ = {
@@ -331,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8265DA5229E93E4800AB9A71 /* JXCenterFlowLayoutDemo.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

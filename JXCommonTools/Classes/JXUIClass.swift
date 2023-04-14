@@ -11,6 +11,17 @@ public struct JXWindow {
             .first(where: \.isKeyWindow)
     }
     
+    /// 从类名获取类
+    public static func jx_classFrom(className: String) -> AnyClass? {
+        guard let ns = Bundle.main.infoDictionary!["CFBundleName"] as? String else {
+            print("not found CFBundleName")
+            return nil }
+        guard let cl = NSClassFromString(ns + "." + className) else {
+            print("not found class:" + className)
+            return nil }
+        return cl
+    }
+    
 }
 
 
@@ -18,11 +29,11 @@ public struct JXWindow {
 
 // MARK: - UILabel
 /// 带边距的label
-class JXInsetsLabel: UILabel {
+public class JXInsetsLabel: UILabel {
     
     var jx_insets: UIEdgeInsets = UIEdgeInsets.zero
     
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         if jx_insets != UIEdgeInsets.zero {
             super.drawText(in: rect.inset(by: jx_insets))
             return
@@ -30,7 +41,7 @@ class JXInsetsLabel: UILabel {
         super.drawText(in: rect)
     }
     
-    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    public override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         var rect = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
         if jx_insets != UIEdgeInsets.zero {
             rect.origin.x -= jx_insets.left;
@@ -44,7 +55,7 @@ class JXInsetsLabel: UILabel {
 
 
 // MARK: - UISlider
-class JXSlider: UISlider {
+public class JXSlider: UISlider {
     /// 高度
     var jxHeight = 0.0
     /// 较大值侧的图片
@@ -103,14 +114,14 @@ class JXSlider: UISlider {
     }()
     
     
-    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+    public override func trackRect(forBounds bounds: CGRect) -> CGRect {
         return jxHeight == 0 ?
         super.trackRect(forBounds: bounds) :
             .init(x: bounds.origin.x, y: (frame.size.height - jxHeight)/2.0, width: bounds.size.width, height: jxHeight)
     }
     
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         jx_layoutGreatIV()
         jx_layoutLabel()
@@ -161,7 +172,7 @@ class JXSlider: UISlider {
 
 // MARK: - UICollectionViewFlowLayout
 /// 单行显示完整时居中，注意方向
-class JXCenterFlowLayout: UICollectionViewFlowLayout {
+public class JXCenterFlowLayout: UICollectionViewFlowLayout {
     
     /// false时每个间隔不变为minimumLineSpacing
     var jx_is_averageSpacing = true
@@ -169,7 +180,7 @@ class JXCenterFlowLayout: UICollectionViewFlowLayout {
     private var jx_reLayoutAttri = false
     private var jx_attri = [UICollectionViewLayoutAttributes]()
     
-    override func prepare() {
+    public override func prepare() {
         super.prepare()
         guard let cv = collectionView else {
             jx_reLayoutAttri = false
@@ -267,7 +278,7 @@ class JXCenterFlowLayout: UICollectionViewFlowLayout {
     }
     
     
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return jx_reLayoutAttri ? jx_attri : super.layoutAttributesForElements(in: rect)
     }
     
