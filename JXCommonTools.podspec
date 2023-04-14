@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'woaiyouxi' => 'woaiyouxi0803@163.com' }
-  s.source           = { :git => 'https://github.com/woaiyouxi0803/JXCommonTools.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/woaiyouxi0803/JXCommonTools.git', :tag => 'v0.1.1' }
    s.social_media_url = 'https://www.jianshu.com/u/2db8fe439069'
 
    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
