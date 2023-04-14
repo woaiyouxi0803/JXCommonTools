@@ -14,8 +14,6 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7EA9B6ECE2CB2A03C5FC0A0E /* Pods_JXCommonTools_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F036492086FAC4009B42BE1 /* Pods_JXCommonTools_Example.framework */; };
-		82EC189229E7B3D400B136CE /* JXCommonTools in Resources */ = {isa = PBXBuildFile; fileRef = 82EC189129E7B3D400B136CE /* JXCommonTools */; };
-		82EC189329E7B3D400B136CE /* JXCommonTools in Resources */ = {isa = PBXBuildFile; fileRef = 82EC189129E7B3D400B136CE /* JXCommonTools */; };
 		AAEE48477906A5C79A51F47A /* Pods_JXCommonTools_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA633D75A24B3D25EB09C /* Pods_JXCommonTools_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +43,6 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7A0FE50CD12C7144630E00B6 /* Pods-JXCommonTools_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JXCommonTools_Tests.release.xcconfig"; path = "Target Support Files/Pods-JXCommonTools_Tests/Pods-JXCommonTools_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		82EC189129E7B3D400B136CE /* JXCommonTools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JXCommonTools; path = ../JXCommonTools; sourceTree = "<group>"; };
 		E8A41DA168F97D2A293C8BB9 /* JXCommonTools.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JXCommonTools.podspec; path = ../JXCommonTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F4B4B5875895BC9F44610941 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F76170D97262F3C19C9A7256 /* Pods-JXCommonTools_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JXCommonTools_Example.debug.xcconfig"; path = "Target Support Files/Pods-JXCommonTools_Example/Pods-JXCommonTools_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,7 +83,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				82EC189129E7B3D400B136CE /* JXCommonTools */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for JXCommonTools */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -252,7 +248,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				82EC189229E7B3D400B136CE /* JXCommonTools in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -262,7 +257,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82EC189329E7B3D400B136CE /* JXCommonTools in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
