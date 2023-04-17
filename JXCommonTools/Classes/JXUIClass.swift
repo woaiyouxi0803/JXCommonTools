@@ -31,7 +31,7 @@ public struct JXWindow {
 /// 带边距的label
 public class JXInsetsLabel: UILabel {
     
-    var jx_insets: UIEdgeInsets = UIEdgeInsets.zero
+    public var jx_insets: UIEdgeInsets = UIEdgeInsets.zero
     
     public override func drawText(in rect: CGRect) {
         if jx_insets != UIEdgeInsets.zero {
@@ -57,9 +57,9 @@ public class JXInsetsLabel: UILabel {
 // MARK: - UISlider
 public class JXSlider: UISlider {
     /// 高度
-    var jxHeight = 0.0
+    public var jxHeight = 0.0
     /// 较大值侧的图片
-    var jxGreatIV: UIImageView? {
+    public var jxGreatIV: UIImageView? {
         willSet {
             if newValue == nil {
                 jxGreatIV?.removeFromSuperview()
@@ -74,7 +74,7 @@ public class JXSlider: UISlider {
     }
     
     private var hadLabel = false
-    func jx_setPoint(left: Int64, right: Int64) {
+    public func jx_setPoint(left: Int64, right: Int64) {
         hadLabel = true
         if jxLeftLabel.superview == nil {
             addSubview(jxLeftLabel)
@@ -175,7 +175,7 @@ public class JXSlider: UISlider {
 public class JXCenterFlowLayout: UICollectionViewFlowLayout {
     
     /// false时每个间隔不变为minimumLineSpacing
-    var jx_is_averageSpacing = true
+    public var jx_is_averageSpacing = true
     
     private var jx_reLayoutAttri = false
     private var jx_attri = [UICollectionViewLayoutAttributes]()
@@ -199,7 +199,7 @@ public class JXCenterFlowLayout: UICollectionViewFlowLayout {
     }
     
     
-    func setVerticalAttri(_ count: Int, _ fSize: CGSize) {
+    private func setVerticalAttri(_ count: Int, _ fSize: CGSize) {
         
         let hight = fSize.height
         let ih = itemSize.height
@@ -238,7 +238,7 @@ public class JXCenterFlowLayout: UICollectionViewFlowLayout {
             
     }
     
-    func setHorizontalAttri(_ count: Int, _ fSize: CGSize) {
+    private func setHorizontalAttri(_ count: Int, _ fSize: CGSize) {
         
         let width = fSize.width
         let iw = itemSize.width

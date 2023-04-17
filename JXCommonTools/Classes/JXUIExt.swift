@@ -20,7 +20,7 @@ extension UIView {
     }
     
     /// 需要提前设置frame
-    func jx_add_keyBoard_frame_notifi() {
+    public func jx_add_keyBoard_frame_notifi() {
         self.jx_keyBoard_origin_frame = self.frame
         NotificationCenter.default.addObserver(self, selector: #selector(jx_keyBoard_willShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(jx_keyBoard_willHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -29,7 +29,7 @@ extension UIView {
                 
     }
     
-    func jx_remove_keyBoard_frame_notifi() {
+    public func jx_remove_keyBoard_frame_notifi() {
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -54,7 +54,7 @@ extension UIView {
     
     // MARK: - 拖拽
     @discardableResult
-    func jx_addPanGestureRecognizer() -> UIPanGestureRecognizer {
+    public func jx_addPanGestureRecognizer() -> UIPanGestureRecognizer {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(jx_pan_response(_:)))
         pan.delaysTouchesBegan = true
         addGestureRecognizer(pan)
