@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+iOS13，swift 5.0
+
 ## Installation
 
 JXCommonTools is available through [CocoaPods](https://cocoapods.org). To install
@@ -27,3 +29,25 @@ woaiyouxi0803, woaiyouxi0803@163.com
 ## License
 
 JXCommonTools is available under the MIT license. See the LICENSE file for more info.
+
+## JXUIClass
+
+`JXWindow.window`: 获取window
+`JXWindow.jx_classFrom(className: String) -> AnyClass?`:根据类名获取类
+
+`JXInsetsLabel`：带边距的label`var jx_insets`设置边距
+
+`JXSlider`:可以设置高度的UISlider。
+`var jxHeight`设置高度。
+`func jx_setPoint(left: Int64, right: Int64)`:可以左右两边设置显示数值
+`var jxGreatIV: UIImageView?`设置后会在数值大的一侧展示该UIImageView
+![./pic/JXSlider.png](./pic/JXSlider.png)
+
+---
+
+## JXUIExt
+
+`extension UIView`
+`jx_add_keyBoard_frame_notifi``jx_remove_keyBoard_frame_notifi`:添加/移除键盘高度改变frame通知
+`jx_addPanGestureRecognizer`给view添加可拖拽手势
+
