@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-JXCommonTools_Example/Pods-JXCommonTools_Example-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Hue/Hue.framework
 ${BUILT_PRODUCTS_DIR}/JXCommonTools/JXCommonTools.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

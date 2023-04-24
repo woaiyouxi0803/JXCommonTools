@@ -1,14 +1,18 @@
 PODS:
-  - JXCommonTools (0.1.1):
+  - Hue (5.0.0)
+  - JXCommonTools (0.1.4):
+    - Hue
     - SnapKit
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Hue
   - JXCommonTools (from `../`)
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - Hue
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -16,9 +20,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JXCommonTools: f9fc298d336a3507c2e28edbd77fd08589a4364c
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  JXCommonTools: 358877d0aa6f6a6b9ae6e474364aab1c1f70696d
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 5d296d3f205187a4be18ad73113d9d58879d7004
+PODFILE CHECKSUM: dcfca1e83147c18c09e2c4bc7a1fa1e90430b454
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1

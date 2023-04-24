@@ -1,6 +1,6 @@
 {
   "name": "JXCommonTools",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "summary": "swift工具,iOS13,swift5.0",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/woaiyouxi0803/JXCommonTools",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/woaiyouxi0803/JXCommonTools.git",
-    "tag": "v0.1.1"
+    "tag": "0.1.4"
   },
   "social_media_url": "https://www.jianshu.com/u/2db8fe439069",
   "pod_target_xcconfig": {
@@ -29,6 +29,9 @@
   "source_files": "JXCommonTools/Classes/**/*",
   "dependencies": {
     "SnapKit": [
+
+    ],
+    "Hue": [
 
     ]
   },

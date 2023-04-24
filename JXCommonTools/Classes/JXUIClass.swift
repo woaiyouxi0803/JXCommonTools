@@ -1,4 +1,6 @@
 import UIKit
+import SnapKit
+import Hue
 
 // MARK: - window
 public struct JXWindow {
@@ -165,6 +167,284 @@ public class JXSlider: UISlider {
         jxLeftLabel.frame = .init(x: 6 + leftE, y: 0, width: jxLeftLabel.bounds.size.width, height: bounds.size.height)
         jxRightLabel.frame = .init(x: (bounds.size.width - jxRightLabel.bounds.size.width - 6 - rightE), y: 0, width: jxRightLabel.bounds.size.width, height: bounds.size.height)
     }
+    
+}
+
+
+// MARK: - JXAlertView
+public class JXAlertView: UIControl {
+    
+    public var jx_autoRemove = true
+    
+    var clickBlock: ((_ index: Int, _ alert: JXAlertView)->())?
+    
+    public lazy var bgView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    public lazy var titleLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont(name: "PingFangSC-Semibold", size: 17)
+        view.textAlignment = .center
+        view.numberOfLines = -1
+        view.textColor = UIColor(hex: "#1A1A1A")
+        return view
+    }()
+    
+    public lazy var messageLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont(name: "PingFangSC-Medium", size: 14)
+        view.textAlignment = .center
+        view.numberOfLines = -1
+        view.textColor = UIColor(hex: "#1A1A1A")
+        return view
+    }()
+    
+    public lazy var cancelButton: UIButton = {
+        let view = UIButton(type: .custom)
+        view.setTitle("取消", for: .normal)
+        view.setTitleColor(.init(hex: "#666666"), for: .normal)
+        view.setBackgroundImage(.jx_image(color: .init(hex: "#E4E7F0"), size: .init(width: 120, height: 38), corners: .allCorners, radius: 19), for: .normal)
+        view.addTarget(self, action: #selector(jx_CancelButtonClick), for: .touchUpInside)
+        return view
+    }()
+    
+    public lazy var confirmButton: UIButton = {
+        let view = UIButton(type: .custom)
+        view.setTitle("确认", for: .normal)
+        view.setTitleColor(.white, for: .normal)
+        view.setBackgroundImage(.jx_gradient([UIColor(hex: "#F474A3"), UIColor(hex: "#EF90ED")], size: .init(width: 120, height: 38), radius: 19, locations: nil, direction: .leftOblique), for: .normal)
+        view.addTarget(self, action: #selector(jx_ConfirmButtonClick), for: .touchUpInside)
+        return view
+    }()
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func initUI() {
+        backgroundColor = .black.withAlphaComponent(0.5)
+        addTarget(self, action: #selector(JXAlertViewClick), for: .touchUpInside)
+        
+        addSubview(bgView)
+        bgView.addSubview(titleLabel)
+        bgView.addSubview(messageLabel)
+        bgView.addSubview(cancelButton)
+        bgView.addSubview(confirmButton)
+        
+        bgView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(290)
+        }
+        
+    }
+    
+    // MARK: - 点击事件
+    @objc fileprivate func JXAlertViewClick() {
+        clickBlock?(0, self)
+        if (jx_autoRemove) {
+            removeFromSuperview()
+        }
+    }
+    
+    @objc fileprivate func jx_CancelButtonClick() {
+        clickBlock?(-1, self)
+        removeFromSuperview()
+    }
+
+    @objc fileprivate func jx_ConfirmButtonClick() {
+        clickBlock?(1, self)
+        removeFromSuperview()
+    }
+    
+    // MARK: - 设置文案
+    fileprivate func jx_Set(title: String?, message: String?, cancelTitle: String?, confirmTitle: String?) {
+        titleLabel.text = title
+        messageLabel.text = message
+        cancelButton.setTitle(cancelTitle, for: .normal)
+        confirmButton.setTitle(confirmTitle, for: .normal)
+        
+        let showButton = (confirmTitle?.utf16.count ?? 0 > 0 ||
+                          cancelTitle?.utf16.count ?? 0 > 0 )
+        
+        if (title?.utf16.count ?? 0 == 0) {
+            layoutTextOnlyMessage(showButton)
+        } else if (message?.utf16.count ?? 0 == 0) {
+            layoutTextOnlyTitle(showButton)
+        } else {
+            layoutTextDefault(showButton)
+        }
+        
+        if (showButton == false) {
+            layoutButtonNone()
+            return
+        }
+        if (cancelTitle?.utf16.count ?? 0 == 0) {
+            layoutButtonOnlyConfirm()
+            return
+        }
+        if (confirmTitle?.utf16.count ?? 0 == 0) {
+            layoutButtonOnlyCancel()
+            return
+        }
+        layoutButtonDefault()
+    }
+    
+    
+    // MARK: - 标题和内容布局
+    fileprivate func layoutTextDefault(_ showButton: Bool = true) {
+        if titleLabel.superview == nil {
+            bgView.addSubview(titleLabel)
+        }
+        if messageLabel.superview == nil {
+            bgView.addSubview(messageLabel)
+        }
+        
+        titleLabel.snp.remakeConstraints { make in
+            make.leading.equalTo(25)
+            make.trailing.equalTo(-25)
+            make.top.equalTo(25)
+        }
+
+        messageLabel.snp.remakeConstraints { make in
+            make.leading.equalTo(40)
+            make.trailing.equalTo(-40)
+            make.top.equalTo(titleLabel.snp.bottom).offset(22)
+            make.bottom.equalTo(showButton == true ? -83: -30)
+        }
+    }
+    
+    fileprivate func layoutTextOnlyTitle(_ showButton: Bool = true) {
+        messageLabel.removeFromSuperview()
+        if titleLabel.superview == nil {
+            bgView.addSubview(titleLabel)
+        }
+        titleLabel.snp.remakeConstraints { make in
+            make.leading.equalTo(25)
+            make.trailing.equalTo(-25)
+            make.top.equalTo(25)
+            make.bottom.equalTo(showButton == true ? -83: -30)
+        }
+    }
+
+    fileprivate func layoutTextOnlyMessage(_ showButton: Bool = true) {
+        titleLabel.removeFromSuperview()
+        if messageLabel.superview == nil {
+            bgView.addSubview(messageLabel)
+        }
+        messageLabel.snp.remakeConstraints { make in
+            make.leading.equalTo(40)
+            make.trailing.equalTo(-40)
+            make.top.equalTo(25)
+            make.bottom.equalTo(showButton == true ? -83: -30)
+        }
+    }
+
+    
+    // MARK: - 按钮布局
+    fileprivate func layoutButtonDefault() {
+        if cancelButton.superview == nil {
+            bgView.addSubview(cancelButton)
+        }
+        if confirmButton.superview == nil {
+            bgView.addSubview(confirmButton)
+        }
+
+        cancelButton.snp.remakeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(38)
+            make.leading.equalTo(17)
+            make.bottom.equalTo(-15)
+        }
+        
+        confirmButton.snp.remakeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(38)
+            make.trailing.equalTo(-17)
+            make.bottom.equalTo(-15)
+        }
+    }
+    
+    fileprivate func layoutButtonOnlyCancel() {
+        confirmButton.removeFromSuperview()
+        if cancelButton.superview == nil {
+            bgView.addSubview(cancelButton)
+        }
+        cancelButton.snp.remakeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(38)
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(-15)
+        }
+    }
+    
+    fileprivate func layoutButtonOnlyConfirm() {
+        cancelButton.removeFromSuperview()
+        if confirmButton.superview == nil {
+            bgView.addSubview(confirmButton)
+        }
+        
+        confirmButton.snp.remakeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(38)
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(-15)
+        }
+    }
+    
+    fileprivate func layoutButtonNone() {
+        cancelButton.removeFromSuperview()
+        confirmButton.removeFromSuperview()
+    }
+    
+}
+
+
+
+extension JXAlertView {
+    
+    @discardableResult
+    /// 按文字有无自动布局弹窗
+    /// - Parameters:
+    ///   - toView: 展示到哪个view上，nil为window上
+    ///   - title: 粗体标题
+    ///   - message: 内容
+    ///   - block: 点击blcok。-1左边、0其他部位、1右边（判断大于0）
+    ///   - cancelTitle: 左边标题 （nil则不展示）
+    ///   - confirmTitle: 右边标题 （nil则不展示）
+    ///   - jx_autoRemove: 点击背景是否自动移除
+    /// - Returns: 弹窗本体，nil则没有弹出
+    public static func jx_show(toView: UIView?, title: String?, message: String?, block: ((_ index: Int, _ alert: JXAlertView)->())? ,cancelTitle: String? = "取消", confirmTitle: String? = "确认", jx_autoRemove: Bool = true) -> JXAlertView? {
+        guard let onView = (toView == nil) ? JXWindow.keyWindow : toView else {
+            print("[JXAlertView]未找到展示到哪")
+            return nil
+        }
+        
+        guard (title?.utf16.count ?? 0 > 0 ||
+               message?.utf16.count ?? 0 > 0) else {
+            print("[JXAlertView]没有展示内容")
+            return nil
+        }
+        
+        let alertView = JXAlertView(frame: UIScreen.main.bounds)
+        alertView.jx_autoRemove = jx_autoRemove
+        alertView.clickBlock = block
+        alertView.jx_Set(title: title, message: message, cancelTitle: cancelTitle, confirmTitle: confirmTitle)
+        
+        onView.addSubview(alertView)
+        return alertView
+    }
+
     
 }
 

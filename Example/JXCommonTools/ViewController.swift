@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
 
     var source = [
         "JXCenterFlowLayoutDemo",
+        "JXAlertView"
     ]
     
     override func viewDidLoad() {
@@ -33,9 +34,32 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = (JXWindow.jx_classFrom(className: source[indexPath.row]) as? UIViewController.Type)?.init() else { return }
+        guard let vc = (JXWindow.jx_classFrom(className: source[indexPath.row]) as? UIViewController.Type)?.init() else {
+            other(title: source[indexPath.row])
+            return }
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func other(title: String?) {
+        guard let title = title else { return }
+        
+        if title == "JXAlertView" {
+            JXAlertViewDemo()
+            return
+        }
+    }
+    
+    // MARK: - JXAlertView
+    func JXAlertViewDemo() {
+//        JXAlertView.jx_show(toView: nil, title: "title", message: "message") { index, alert in
+//            print(index)
+//        }
+        
+        let alert = JXAlertView.jx_show(toView: nil, title: "title(jx_autoRemove == false)", message: "message") { index, alert in
+            print(index)
+        }
+        alert?.jx_autoRemove = false
     }
     
     
