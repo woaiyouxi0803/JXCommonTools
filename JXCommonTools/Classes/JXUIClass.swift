@@ -206,6 +206,7 @@ public class JXAlertView: UIControl {
     
     public lazy var cancelButton: UIButton = {
         let view = UIButton(type: .custom)
+        view.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 14)
         view.setTitle("取消", for: .normal)
         view.setTitleColor(.init(hex: "#666666"), for: .normal)
         view.setBackgroundImage(.jx_image(color: .init(hex: "#E4E7F0"), size: .init(width: 120, height: 38), corners: .allCorners, radius: 19), for: .normal)
@@ -215,6 +216,7 @@ public class JXAlertView: UIControl {
     
     public lazy var confirmButton: UIButton = {
         let view = UIButton(type: .custom)
+        view.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 14)
         view.setTitle("确认", for: .normal)
         view.setTitleColor(.white, for: .normal)
         view.setBackgroundImage(.jx_gradient([UIColor(hex: "#F474A3"), UIColor(hex: "#EF90ED")], size: .init(width: 120, height: 38), radius: 19, locations: nil, direction: .leftOblique), for: .normal)

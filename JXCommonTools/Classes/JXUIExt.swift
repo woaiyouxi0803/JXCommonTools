@@ -20,17 +20,25 @@ extension UIView {
     }
     
     /// 需要提前设置frame
-    public func jx_add_keyBoard_frame_notifi() {
+    @discardableResult
+    public func jx_add_keyBoard_frame_notifi(_ ae: Bool = false) -> UITapGestureRecognizer? {
         self.jx_keyBoard_origin_frame = self.frame
         NotificationCenter.default.addObserver(self, selector: #selector(jx_keyBoard_willShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(jx_keyBoard_willHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        
-                
+        guard ae == true else { return nil}
+        isUserInteractionEnabled = true
+        let tap = (UITapGestureRecognizer(target: self, action: #selector(jx_endEditing)))
+        addGestureRecognizer(tap)
+        return tap
     }
     
     public func jx_remove_keyBoard_frame_notifi() {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func jx_endEditing() {
+        self.endEditing(true)
     }
     
     @objc private func jx_keyBoard_willShow(_ notification: Notification) {
@@ -104,6 +112,10 @@ extension UIView {
     
 }
 
+
+
+
+// MARK: - Found
 extension UIImage {
     
     /// 生成指定尺寸的纯色图像
@@ -186,5 +198,24 @@ extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+extension Array {
+    public func jx_toJSONString() -> String? {
+        return JSONSerialization.jx_toJSONString(self)
+    }
+}
+
+extension Dictionary {
+    public func jx_toJSONString() -> String? {
+        return JSONSerialization.jx_toJSONString(self)
+    }
+}
+
+extension JSONSerialization {
+    public static func jx_toJSONString(_ obj: Any) -> String? {
+        guard let data = try? JSONSerialization.data(withJSONObject: obj) else { return nil }
+        return String(data: data, encoding: String.Encoding.utf8)
     }
 }
