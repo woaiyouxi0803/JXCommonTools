@@ -201,6 +201,41 @@ extension UIImage {
     }
 }
 
+// MARK: - 时间统一秒
+extension Int64 {
+    public var jx_to_second: TimeInterval {
+        if self > 1000000000000 {
+            return TimeInterval(TimeInterval(self)/1000.0)
+        }
+        return TimeInterval(self)
+    }
+    
+    public var jx_to_millisecond: TimeInterval {
+        if self > 1000000000000 {
+            return TimeInterval(self)
+        }
+        return TimeInterval(self*1000)
+    }
+    
+}
+
+extension TimeInterval {
+    public var jx_to_second: TimeInterval {
+        if self > 1000000000000 {
+            return self/1000.0
+        }
+        return self
+    }
+    
+    public var jx_to_millisecond: TimeInterval {
+        if self > 1000000000000 {
+            return self
+        }
+        return self*1000.0
+    }
+}
+
+
 extension Array {
     public func jx_toJSONString() -> String? {
         return JSONSerialization.jx_toJSONString(self)
