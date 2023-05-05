@@ -201,6 +201,22 @@ extension UIImage {
     }
 }
 
+
+
+// MARK: - 设计尺寸
+extension Double {
+    
+    public var jx_design: Double {
+        return (JXWindow.keyWindow?.screen.bounds.size.width ?? UIScreen.main.bounds.size.width)/375.0*self
+    }
+    
+    public var jx_Hdesign: Double {
+        return (JXWindow.keyWindow?.screen.bounds.size.height ?? UIScreen.main.bounds.size.height)/667.0*self
+    }
+    
+}
+
+
 // MARK: - 时间统一秒
 extension Int64 {
     public var jx_to_second: TimeInterval {
