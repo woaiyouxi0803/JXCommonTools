@@ -37,23 +37,25 @@ JXCommonTools is available under the MIT license. See the LICENSE file for more 
 
 `JXInsetsLabel`：带边距的label`var jx_insets`设置边距
 
-`JXAlertView`:自定义弹窗，根据设置的内容有无自动调整大小
-```
-        JXAlertView.jx_show(toView: nil, title: "title", message: "message") { index, alert in
-            print(index)
-        }
-        
-        let alert = JXAlertView.jx_show(toView: nil, title: "title(jx_autoRemove == false)", message: "message") { index, alert in
-            print(index)
-        }
-        alert?.jx_autoRemove = false
-```
-
 `JXSlider`:可以设置高度的UISlider。
 `var jxHeight`设置高度。
 `func jx_setPoint(left: Int64, right: Int64)`:可以左右两边设置显示数值
 `var jxGreatIV: UIImageView?`设置后会在数值大的一侧展示该UIImageView
 ![./pic/JXSlider.png](https://github.com/woaiyouxi0803/JXCommonTools/blob/main/pic/JXSlider.png?raw=true)
+
+`JXAlertView`
+弹窗参考，根据文字有无自动重新布局
+
+```
+public static func jx_show(toView: UIView?, title: String?, message: String?, block: ((_ index: Int, _ alert: JXAlertView)->())? ,cancelTitle: String? = "取消", confirmTitle: String? = "确认", jx_autoRemove: Bool = true) -> JXAlertView? {
+```
+
+
+
+
+`JXCenterFlowLayout`: 单行/列，根据数量，自动均分居中的瀑布流布局。
+
+
 
 ---
 
@@ -62,4 +64,23 @@ JXCommonTools is available under the MIT license. See the LICENSE file for more 
 `extension UIView`
 `jx_add_keyBoard_frame_notifi``jx_remove_keyBoard_frame_notifi`:添加/移除键盘高度改变frame通知
 `jx_addPanGestureRecognizer`给view添加可拖拽手势
+
+UI设计尺寸：
+`extension Double`:
+`public var jx_design: Double `: ✖️屏幕宽/375.0
+`public var jx_Hdesign: Double `: ✖️屏幕高/667.0
+
+时间秒/毫秒转换：
+`extension Int64``extension TimeInterval`:
+`public var jx_to_second: TimeInterval` 时间戳统一秒/毫秒都转为秒
+`public var jx_to_millisecond: TimeInterval`时间戳统一秒/毫秒都转为毫秒
+
+Array/Dictionary转String：
+`extension Array``extension Dictionary`:
+`public func jx_toJSONString() -> String? `
+
+`extension JSONSerialization`:
+`public static func jx_toJSONString(_ obj: Any) -> String?`
+
+
 
