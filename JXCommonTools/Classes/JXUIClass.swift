@@ -13,6 +13,20 @@ public struct JXWindow {
             .first(where: \.isKeyWindow)
     }
     
+    public static var currentViewController: UIViewController? {
+        return _topVC(keyWindow?.rootViewController)
+    }
+    
+    private static func _topVC(_ vc: UIViewController?) -> UIViewController? {
+        if vc is UINavigationController {
+            return _topVC((vc as? UINavigationController)?.topViewController)
+        } else if vc is UITabBarController {
+            return _topVC((vc as? UITabBarController)?.selectedViewController)
+        } else {
+            return vc
+        }
+    }
+    
     /// 从类名获取类
     public static func jx_classFrom(className: String) -> AnyClass? {
         guard let ns = Bundle.main.infoDictionary!["CFBundleName"] as? String else {
@@ -53,6 +67,70 @@ public class JXInsetsLabel: UILabel {
         }
         return rect
     }
+}
+
+
+// MARK: - toast
+public class JXTipLabel: JXInsetsLabel {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .black.withAlphaComponent(0.75)
+        textColor = .white
+        font = UIFont.systemFont(ofSize: 12)
+        numberOfLines = -1
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
+        tag = 20230512;
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    @discardableResult
+    public static func jx_show(text: String?, duration: TimeInterval, sview: UIView? = nil, labelTextInsets: UIEdgeInsets = .init(top: 16, left: 22, bottom: 16, right: 22), widthMargins: CGFloat = 44) -> JXTipLabel? {
+        var superView: UIView?
+        if sview != nil {
+            superView = sview!
+        } else {
+            superView = JXWindow.keyWindow
+        }
+        
+        self.cancelPreviousPerformRequests(withTarget: self, selector: #selector(jx_end), object: superView)
+        
+        guard let superView = superView else { return nil }
+        let label = superView.viewWithTag(20230512) as? JXTipLabel ?? JXTipLabel()
+
+        label.jx_insets = labelTextInsets
+        label.frame = .zero
+        label.text = (text?.utf8.count ?? 0 == 0) ? " " : text
+        label.sizeToFit()
+        
+        if label.frame.size.width + widthMargins * 2 > superView.frame.size.width {
+            label.frame = .init(x: 0, y: 0, width: superView.frame.size.width - widthMargins * 2, height: superView.frame.size.height)
+            label.sizeToFit()
+        }
+        let h = label.frame.size.height
+        let w = label.frame.size.width
+        
+        label.frame = .init(x: (superView.bounds.size.width - w)/2.0, y: (superView.bounds.size.height - h)/2.0, width: w, height: h)
+        superView.addSubview(label)
+        label.isHidden = false
+        
+        self.perform(#selector(jx_end), with: superView, afterDelay: duration)
+        
+        return label
+    }
+
+    @objc public static func jx_end(_ sview: UIView?) {
+        
+        let label = sview?.viewWithTag(20230512)
+        label?.isHidden = true
+        label?.removeFromSuperview()
+        
+    }
+
 }
 
 

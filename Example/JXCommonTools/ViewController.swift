@@ -14,7 +14,8 @@ class ViewController: UITableViewController {
 
     var source = [
         "JXCenterFlowLayoutDemo",
-        "JXAlertView"
+        "JXAlertView",
+        "JXTipLabel",
     ]
     
     override func viewDidLoad() {
@@ -48,6 +49,10 @@ class ViewController: UITableViewController {
             JXAlertViewDemo()
             return
         }
+        if title == "JXTipLabel" {
+            JXTipLabelDemo()
+            return
+        }
     }
     
     // MARK: - JXAlertView
@@ -62,6 +67,15 @@ class ViewController: UITableViewController {
         alert?.jx_autoRemove = false
     }
     
+    // MARK: - JXTipLabel
+    static var longText: String = ""
+    func JXTipLabelDemo() {
+        
+        ViewController.longText.append("toast可以很长很长很长很长～")
+        
+        JXTipLabel.jx_show(text: ViewController.longText, duration: 5)
+        
+    }
     
 }
 

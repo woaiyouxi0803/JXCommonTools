@@ -32,6 +32,7 @@
 		74BAF4A628CFE7CD86A1238F9FFF9215 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F747A8E3C2A2438D940FD0203645483 /* ConstraintAttributes.swift */; };
 		7F49D7DA4946748C1EC14E94DB785576 /* Pods-JXCommonTools_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4C5DC31FD497E191FA87E8A98754D6F /* Pods-JXCommonTools_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8123E7B8D7C1AC91B053CA93CC7AACB2 /* Pods-JXCommonTools_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BCE5FBA94FC7F9A464BB775F4273CA /* Pods-JXCommonTools_Example-dummy.m */; };
+		82302C682A0DE7560016732B /* JXTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82302C672A0DE7560016732B /* JXTool.swift */; };
 		8BF9CFF5CA6AF64E06720B6226B76674 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057D696EB5FE11FEBF5FEA981C7A0FC3 /* ConstraintRelation.swift */; };
 		8C9B5D63D7AFE01A6A11649681174193 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A18AC36BF25D63A03171064BBCFCC /* ConstraintMakerRelatable.swift */; };
 		8CCCCFCF8D8C18FA5EDBEB8A048DAC98 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712111B4A6539E547A9A7FCDF27E89A2 /* ConstraintLayoutSupport.swift */; };
@@ -126,7 +127,7 @@
 		2CDEC94B545AB2B2C37D4BC01BD25A05 /* JXUIClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXUIClass.swift; path = JXCommonTools/Classes/JXUIClass.swift; sourceTree = "<group>"; };
 		2CF33A136B3B720501895E101483C8FF /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Sources/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		2D807106D19398444765F543227B5CCD /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Sources/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
-		3081F407BF259F75D6A6BE3BD729B68B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3081F407BF259F75D6A6BE3BD729B68B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		320D4E660C244B58FF5D2540E2BFB6AE /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Sources/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		36AFEC131EB65D34DFF172D175784E70 /* JXCommonTools-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JXCommonTools-Info.plist"; sourceTree = "<group>"; };
 		3878D2BE6A9E278F3CE90C6EB27014F8 /* Pods-JXCommonTools_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JXCommonTools_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -153,17 +154,18 @@
 		712111B4A6539E547A9A7FCDF27E89A2 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Sources/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		7976D0EA9AECB58BB72A52E6B1D88CBE /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Sources/ConstraintDescription.swift; sourceTree = "<group>"; };
 		81086A15A5935D7BD80E6B4D22614C7F /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
+		82302C672A0DE7560016732B /* JXTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JXTool.swift; path = JXCommonTools/Classes/JXTool.swift; sourceTree = "<group>"; };
 		86EC1C1171C1232A9AD03AEC95052122 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintMakerRelatable+Extensions.swift"; path = "Sources/ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
 		8867B38557B96613F6BEE727E9D6536D /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		8A69027FEBF9D068BB6B9D3FC943EC4C /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		8BDB07DA513A268DBED63A4C95B5B190 /* Pods-JXCommonTools_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JXCommonTools_Tests-Info.plist"; sourceTree = "<group>"; };
 		8D790848EFA6DBABE021F7A68615EA4E /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Sources/ConstraintView.swift; sourceTree = "<group>"; };
-		8D8E52C29949D28F34CAF22FAF69B846 /* JXCommonTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JXCommonTools.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		932311348246D2194246062FEC98370E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		8D8E52C29949D28F34CAF22FAF69B846 /* JXCommonTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JXCommonTools.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		932311348246D2194246062FEC98370E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93ACCE4ADFDBC5521A5FBD10DA281472 /* Pods-JXCommonTools_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JXCommonTools_Example.modulemap"; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98ED57EEDC8E89DEC47EC16005F7A0CC /* Hue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hue.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F747A8E3C2A2438D940FD0203645483 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Sources/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		A3B9017440BF6211054FE81F7F78BC76 /* Hue */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hue; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A460F3704A57CB2C5A7F0D5B07BCA6D9 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Sources/ConstraintViewDSL.swift; sourceTree = "<group>"; };
@@ -282,7 +284,6 @@
 				EAB6A8CD704ED36C3F24475A0FB0C190 /* UIImage+Hue.swift */,
 				8DFF7AD839EE1B4FA6BB105C0BC130FD /* Support Files */,
 			);
-			name = Hue;
 			path = Hue;
 			sourceTree = "<group>";
 		};
@@ -317,6 +318,7 @@
 			children = (
 				2CDEC94B545AB2B2C37D4BC01BD25A05 /* JXUIClass.swift */,
 				FA913E3A54C6620BB8A381E2BCB0FB1F /* JXUIExt.swift */,
+				82302C672A0DE7560016732B /* JXTool.swift */,
 				EAB54ADB259CF00A37BB4C7964FB00F8 /* Pod */,
 				F37E4CA0CD928F06BF8C2640D0622F20 /* Support Files */,
 			);
@@ -413,7 +415,6 @@
 				4C1F3E03ED7D03487FBAD2C5EB87B0A4 /* UILayoutSupport+Extensions.swift */,
 				EB557FADA467A8935071A09D17DCC767 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -763,6 +764,7 @@
 				2EAA6FE8F0717C1D5A91A7251858822B /* JXCommonTools-dummy.m in Sources */,
 				DAAA11A7AB26C67DBFBB008F22F97C06 /* JXUIClass.swift in Sources */,
 				498C70B78AB27E8C23C1DF54D8D66319 /* JXUIExt.swift in Sources */,
+				82302C682A0DE7560016732B /* JXTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
