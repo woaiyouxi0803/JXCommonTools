@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 import Photos
 
-class JXTool {
+public class JXTool {
     // MARK: - 跳相机
-    static func jx_go_Camera(_ vc: UIViewController? = nil) -> UIImagePickerController? {
+    public static func jx_go_Camera(_ vc: UIViewController? = nil) -> UIImagePickerController? {
         let t = JXTool.jx_camera_permissions()
         if t == -1 {
             return nil
@@ -52,13 +52,13 @@ class JXTool {
     }
     
     /// 相机权限 0未知；1受限； 2拒绝；3.允许；4部分；
-    static func jx_camera_permissions() -> Int {
+    public static func jx_camera_permissions() -> Int {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) == true else {
 //            ("相机不可使用")
             return -1 }
         return AVCaptureDevice.authorizationStatus(for: .video).rawValue
     }
-    static func jx_camera_permissions_req(_ block: ((_ granted: Bool) -> Void)? = nil) {
+    public static func jx_camera_permissions_req(_ block: ((_ granted: Bool) -> Void)? = nil) {
         let permissions = jx_camera_permissions()
         guard permissions != -1 else { return }
         if permissions == 0 {
@@ -78,14 +78,14 @@ class JXTool {
     
     
     /// 相册权限 0未知；1受限； 2拒绝；3.允许；4部分；
-    static func jx_album_permissions() -> Int {
+    public static func jx_album_permissions() -> Int {
         if #available(iOS 14, *) {
             return PHPhotoLibrary.authorizationStatus(for: .readWrite).rawValue
         } else {
             return PHPhotoLibrary.authorizationStatus().rawValue
         }
     }
-    static func jx_album_permissions_req(_ block: ((_ status: Int) -> Void)? = nil) {
+    public static func jx_album_permissions_req(_ block: ((_ status: Int) -> Void)? = nil) {
         let permissions = jx_album_permissions()
         if permissions == 0 {
             PHPhotoLibrary.requestAuthorization { status in
@@ -102,10 +102,10 @@ class JXTool {
         jx_permissions_jump()
     }
     /// 麦克风权限 0未知；1受限； 2拒绝；3.允许；4部分；
-    static func jx_mic_permissions() -> Int {
+    public static func jx_mic_permissions() -> Int {
         return AVCaptureDevice.authorizationStatus(for: .audio).rawValue
     }
-    static func jx_mic_permissions_req(_ block: ((_ granted: Bool) -> Void)? = nil) {
+    public static func jx_mic_permissions_req(_ block: ((_ granted: Bool) -> Void)? = nil) {
         let permission = AVAudioSession.sharedInstance().recordPermission
         if permission == .undetermined {
             AVAudioSession.sharedInstance().requestRecordPermission { granted in
